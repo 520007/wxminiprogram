@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taixin.wxminiprogram.dao.PayMapper">
+    <resultMap id="paymap" type="com.taixin.wxminiprogram.pojo.Pay" autoMapping="true"></resultMap>
+    <select id="getByName" parameterType="pay">
+        select
+        id as id,
+        name as name,
+        unit_price as unitPrice
+        from
+        pay_tbl
+        <if test="name != null and name !=''">
+            name = #{name}
+        </if>
+    </select>
+</mapper>
